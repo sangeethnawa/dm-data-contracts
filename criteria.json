@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "POST /critiria [Request]",
+  "description": "Create a new discount criteria",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["discount_name", "discount_category", "discount_entity", "attributes", "value_type", "value", "created_at", "created_by"],
+  "properties": {
+    "discount_name": {
+      "type": "string"
+    },
+    "discount_code": {
+      "type": "string"
+    },
+    "discount_category": {
+      "type": "integer"
+    },
+    "discount_entity": {
+      "type": "integer"
+    },
+    "attributes": {
+      "type": "object",
+      "required": ["values"],
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["category"],
+            "properties": {
+              "category": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "value_type": {
+      "type": "string",
+      "enum": ["percentage", "amount"]
+    },
+    "value": {
+      "type": "number"
+    },
+    "minimum_eligibiliy_amount": {
+      "type": "number"
+    },
+    "maximum_eligibiliy_amount": {
+      "type": "number"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "valid_to": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "buying_product": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        },
+        "required": ["kind"]
+      }
+    },
+    "benifited_product_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        },
+        "required": ["kind"]
+      }
+    },
+    "benitited_discount": {
+      "type": "number"
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  }
+}
